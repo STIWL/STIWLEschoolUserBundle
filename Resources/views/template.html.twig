@@ -1,0 +1,158 @@
+{% trans_default_domain 'EsolvingEschoolUserBundle' %}
+{% if form is defined %}
+    {% form_theme form 'EsolvingEschoolCoreBundle:Form:fields.html.twig' %}
+{% endif %}
+{% import 'EsolvingEschoolCoreBundle:Html:html.html.twig' as html %}
+<!DOCTYPE html>
+{#<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">#}
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block title %} {% trans %} welcome {% endtrans%}{% endblock %}</title>
+        {% block stylesheets %}
+        {% stylesheets filter='cssrewrite, yui_css' output="css/packed/all.css"
+                'bundles/esolvingeschoolcore/css/reinstated/style_campus.css'
+                'bundles/esolvingeschoolcore/js/jquery/jquery-ui/jquery-ui-1.10.1.custom/css/custom-theme/jquery-ui-1.10.1.custom.css'
+            %}
+        <link href="{{ asset_url }}" rel="stylesheet" media="screen" type="text/css" />
+            {% endstylesheets %}
+        {% endblock %}
+    </head>
+    <body>
+        <noscript>
+        <meta http-equiv="Refresh" content="0; url='{{ path('esolving_eschool_coreB_javascript_disabled') }}'"/>
+        </noscript>      
+        <div id="wrapper">
+            {#{{ dump(app.request.session) }}#}
+                <div id="header">
+                    <div id="logo">
+                        {#<a href="javascript:void(0)"><img src="{{ asset('bundles/esolvingeschoolcore/images/e-solving_big.png') }}"/></a>#}
+                            <span class="enterprise">{{ global.enterprise }}</span>
+                        </div>
+                        <div id="language">
+                            <form action="{{ path('esolving_pageB_set_locale',{'route':app.request.get('_route')})}}" name='formSetLocale' method="GET">
+                                <ul>
+                                    <li>{% trans %} language {% endtrans%}: {{ esolving_eschool_core.ddlbLanguage() | raw }}
+                                    {% for key, param in app.request.get('_route_params') %}
+                                            <input type="hidden" name="{{ key }}" value="{{ param }}">
+                                    {% endfor %}
+                                        </li>
+                                    </ul>
+                                </form>
+                            </div>
+                            <div id="system">
+                                <h2>{{ global.esolving.project.eschool }}</h2>
+                            </div>
+                            <div id="section-headquarter">
+                                <form action="{{ path('esolving_eschool_userB_set_section_headquarter',{'route':app.request.get('_route')}) }}" name="formSectionHeadquarter" method="get">
+                                    <ul>
+                                        <li>
+                    {% trans %}section{% endtrans %}: {{ esolving_eschool_core.ddlbSection() | raw }}
+                                            </li>
+                                            <li>
+                    {% trans %}headquarter{% endtrans %}: {{ esolving_eschool_core.ddlbHeadquarter() | raw }}
+                                                </li>
+                                            </ul>
+                                        {% for key, param in app.request.get('_route_params') %}
+                                            <input type="hidden" name="{{ key }}" value="{{ param }}">
+                                        {% endfor %}
+                                        </form>
+                                    </div>
+                                </div>
+                                <div id="menu">
+                {% block menu %}
+                                        <div id="cssmenu">
+                    {% include 'EsolvingEschoolUserBundle:Menu:menu.html.twig' %}
+                                            </div>
+                {% endblock menu %}
+                                        </div>
+                                        <div id="page">
+                           {% block content %}
+                                                <div id="content">
+                                                </div>
+                            {% endblock %}
+                                                <br class="clearfix" />
+                            {% block sidebar %}
+                            {#<div id="sidebar">
+                                <div class="box">
+                                    <h3>Morbi pharetra</h3>
+                                    <ul class="list">
+                                        <li class="first"><a href="#">Pharetra massa convallis</a></li>
+                                        <li><a href="#">Cras nulla ridiculus</a></li>
+                                        <li><a href="#">Feugiat arcu tempus congue</a></li>
+                                        <li><a href="#">Libero felis magna dolor</a></li>
+                                        <li><a href="#">Pulvinar ut facilisis duis</a></li>
+                                        <li><a href="#">Cras nulla ridiculus</a></li>
+                                        <li><a href="#">Feugiat arcu volutpat congue</a></li>
+                                        <li><a href="#">Libero felis dolor</a></li>
+                                        <li class="last"><a href="#">Venenatis et vel duis</a></li>
+                                    </ul>
+                                </div>
+                                <div class="box">
+                                    <h3>Magna luctus</h3>
+                                    <p>
+                                        Ultrices odio amet diam sollicitudin primis penatibus. Ullamcorper nulla elementum aliquam dui a nisl montes.
+                                    </p>
+                                </div>
+                            </div>
+                            <br class="clearfix" />#}
+                            {% endblock sidebar %}
+                                            </div>
+                                        </div>
+                                        <div id="footer">
+                                            &copy; 2012 - {{ date() | date('Y')}} {%trans%}designed{%endtrans%} {%trans%}and{%endtrans%} {%trans%}developed_by{%endtrans%} <a href="#">{{ global.enterprise}}</a>
+                                        </div>
+    {% block javascripts %}
+                                    {#<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>#}
+        {% javascripts filter='yui_js'
+            'bundles/esolvingeschoolcore/js/jquery/jquery-1.9.1.min.js'
+            'bundles/esolvingeschoolcore/js/jquery/jquery-ui/jquery-ui-1.10.1.custom/js/jquery-ui-1.10.1.custom.min.js'
+            'bundles/esolvingeschoolcore/js/init_campus.js'
+            'bundles/esolvingeschoolcore/css/reinstated/jquery.dropotron-1.0.js'
+            'bundles/esolvingeschoolcore/css/reinstated/init.js' 
+        %}
+                                        <script src="{{ asset_url }}" type="text/javascript"></script>
+        {% endjavascripts %}
+        {% if app.request.locale == 'es'%}
+            {% javascripts filter='yui_js'
+            'bundles/esolvingeschoolcore/js/jquery/jquery-ui/jquery.ui.datepicker-es.js' 
+            %}
+                                        <script src="{{ asset_url }}" type="text/javascript"></script>
+            {% endjavascripts %}
+        {% elseif app.request.locale == 'en' %}
+            {% javascripts filter='yui_js'
+            'bundles/esolvingeschoolcore/js/jquery/jquery-ui/jquery.ui.datepicker-en-GB.js' 
+            %}
+                                        <script src="{{ asset_url }}" type="text/javascript"></script>
+            {% endjavascripts %}
+        {% elseif app.request.locale == 'fr' %}
+            {% javascripts filter='yui_js'
+            'bundles/esolvingeschoolcore/js/jquery/jquery-ui/jquery.ui.datepicker-fr.js' 
+            %}
+                                        <script src="{{ asset_url }}" type="text/javascript"></script>
+            {% endjavascripts %}
+        {% endif %}
+                                {#<div title="Bienvenido" id="bienvenido">hola</div>#}
+                                        <script type=text/javascript>
+                                            $(function() {
+                                                //$("#bienvenido").dialog();
+                                                $("select[name='ddlbSection'],select[name='ddlbHeadquarter']").on("change", function() {
+                                                    /*window.onbeforeunload = function exitAlert()
+                                                     {
+                                                     return true;
+                                                     }*/
+                                                    {#confirmar = confirm("{% trans from "EsolvingEschoolUserBundle" %}are_you_sure_to_change{% endtrans %}");
+                                                    if (confirmar)
+                                                        $("form[name='formSectionHeadquarter']").submit();
+                                                    else
+                                                        return false;#}
+                                                                    $("form[name='formSectionHeadquarter']").submit();
+                                                                });
+                                                                $("select[name='ddlbLanguage']").on("change", function() {
+                                                                    $("form[name='formSetLocale']").submit();
+                                                                });
+                                                            });
+                                            </script>
+    {% endblock javascripts %}
+                                        </body>
+                                    </html>

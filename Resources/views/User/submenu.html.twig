@@ -1,0 +1,27 @@
+{% extends "EsolvingEschoolUserBundle::template.html.twig" %}
+{% trans_default_domain "EsolvingEschoolUserBundle" %}
+{% block title %}{% trans %}user_module{% endtrans %}{% endblock %}
+{% block content %}
+<div id="content">
+    <h1>{% trans %}register{% endtrans %}</h1>
+    <br class="clearfix">
+    <a href="{{ path('esolving_eschool_userB_register') }}">{% trans %}register_user{% endtrans %}</a>
+    <br />
+    <a href="{{ path('esolving_eschool_userB_Student_register') }}">{% trans %}register_student{% endtrans %}</a>
+    <br />
+    <a href="{{ path('esolving_eschool_userB_Teacher_register') }}">{% trans %}register_teacher{% endtrans %}</a>    
+    <br />
+    <a href="{{ path('esolving_eschool_userB_Father_register') }}">{% trans %}register_father{% endtrans %}</a>    
+    <br />
+    <h1>{% trans %}reports{% endtrans %}</h1>
+    <br class="clearfix">
+    <a href="{{ path('esolving_eschool_userB_list')}}">{% trans %}list_users{% endtrans %}</a>
+    <br />
+    <a href="{{ path('esolving_eschool_userB_Student_list') }}">{% trans %}list_students{% endtrans %}</a>    
+    <br />
+    <a href="{{ path('esolving_eschool_userB_Teacher_list') }}">{% trans %}list_teachers{% endtrans %}</a>    
+    <br />
+    <a href="{{ path('esolving_eschool_userB_Father_list') }}">{% trans %}list_fathers{% endtrans %}</a>    
+    <br />
+</div>
+{% endblock content%}

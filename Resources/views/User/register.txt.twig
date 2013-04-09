@@ -1,0 +1,24 @@
+{% trans_default_domain 'EsolvingShopcartBundle' %}
+<table class="fancyTable" width=100%>
+    <thead>
+        <tr>
+            <th>{% trans %}code{% endtrans %}</th>
+            <th>{% trans %}password{% endtrans %}</th>
+            <th>{% trans %}createdAt{% endtrans %}</th>
+            <th>{% trans %}roles{% endtrans %}</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>{{ user.code }}</td>
+            <td>{{ password }}</td>
+            <td>{{ user.createdAt | localizeddate('long','none') }}</td>
+            <td>
+                <ul>{% for role in user.rolesaccess %}
+                    <li>{{ role.roleType.languages.0.description }}</li>
+                {% endfor %}
+                </ul>
+            </td>
+        </tr>
+    </tbody>
+</table>

@@ -1,0 +1,66 @@
+{% extends 'EsolvingEschoolUserBundle::template.html.twig'%}
+{% trans_default_domain 'EsolvingEschoolUserBundle'%}
+{% block title %}{% trans %}profile{% endtrans %}{% endblock %}
+{%block content%}
+<div id="content">
+{#{% trans with {'%name%':'Luis' }%}show %name%{% endtrans %}#}
+{#{{ form_errors(form)}}#}
+        <h1>{{ block('title') }}</h1>
+        <div class="clearfix"></div>
+{{ html.jqueryUiGetNotice(info,status) }}
+{#{% for flashMessage in app.session.flashbag.get('notice') %}
+    <div class="flash-notice">
+        {{ flashMessage }}
+    </div>
+{% endfor %}#}
+        <form name='{{form.vars.name}}' novalidate="" action='{{ path('esolving_eschool_userB_profile') }}' method="post" class="form_wrap">
+            <div class='form_row'>
+                <div class='form_label'>{% trans %} name {% endtrans %}</div>
+                <div class='form_widget'>{{ app.user.name }}</div>
+            </div>
+            <div class='form_row'>
+                <div class='form_label'>{% trans %} last_name {% endtrans %}</div>
+                <div class='form_widget'>{{ app.user.lastname }}</div>
+            </div>
+            <div class='form_row'>
+                <div class='form_label'>{% trans %} address {% endtrans %}</div>
+                <div class='form_widget'>{{ app.user.address }}</div>
+            </div>
+            <div class='form_row'>
+                <div class='form_label'>{% trans %} code {% endtrans %}</div>
+                <div class='form_widget'>{{ app.user.code }}</div>
+            </div>
+        {{ form_row(form.actualPassword) }}
+        {{ form_row(form.passwordRepeated)}}
+        {#{{ form_row(form.newPassword) }}
+        {{ form_row(form.confirmationPassword)}}#}
+        {{ form_row(form.email)}}
+            <div class='form_row'>
+                <div class='form_label'>{% trans %} age {% endtrans %}</div>
+                <div class='form_widget'>{{ date()|date('Y') - app.user.dateborn|date('Y') }}</div>
+            </div>
+        {#<div class='form_row'>
+            <div class='form_label'>{{ form_label(form.integer)}}</div>
+            <div class='form_widget'>{{ form_widget(form.integer)}}</div>
+            <div class='form_errors'>{{ form_errors(form.integer)}}</div>
+        </div>#}
+        {#{{ form_row(form.integer)}}#}
+    {{ form_row(form.sexType)}}
+            <div class='form_row'>
+                <div class='form_label'>&nbsp;</div>
+                <div class='form_widget'><input type=submit name='btn_{{ form.vars.name}}' class="button button-form" value="{% trans %}update{% endtrans %}"></div>
+            </div>
+        {#{{form_widget(form._token)}}#}
+        {{form_rest(form)}}
+        {#{{ form_widget(form) }}#}
+        </form>
+{# first and second part have this options: 
+none, short, medium, long and full
+language: is the language that show
+#}
+{#{% set firstPart = 'full'%}
+{% set secondPart = 'long'%}
+{% set language = app.request.locale %}
+{{ app.user.dateborn |localizeddate(firstPart,secondPart,language)}}#}
+    </div>
+{% endblock content %}

@@ -1,0 +1,93 @@
+{% extends "EsolvingEschoolUserBundle::template.html.twig"%}
+{% trans_default_domain 'EsolvingEschoolUserBundle' %}
+{% block title %}{% trans %}list_users{% endtrans %}{% endblock %}
+{% block content %}
+<div id="content">
+    <h1>{{ block('title')}}</h1>
+    <ul class="record-actions record-actions-header">
+        <li>
+            <a href="{{ path('esolving_eschool_userB_register') }}" class="button ui-state-default">
+                <span class="ui-icon ui-icon-plus icon-position"></span>
+            {% trans %}register_user{% endtrans %}
+            </a>
+        </li>
+    </ul>
+    <div class="clearfix divider-medium"></div>
+    <div id="navigation">
+        {{ knp_pagination_render(users.pagination) }}
+        </div>
+        <table class="fancyTable">
+            <thead>
+                <tr>
+                    <th>{% trans %}name{% endtrans %}</th>
+                    <th>{% trans %}last_name{% endtrans %}</th>
+                    <th>{% trans %}address{% endtrans %}</th>
+                    <th>{% trans %}date_born{% endtrans %}</th>
+                    <th>{% trans %}sex{% endtrans %}</th>
+                    <th>{% trans %}distrit{% endtrans %}</th>
+                    <th>{% trans %}email{% endtrans %}</th>
+                    <th>{% trans %}group_blod{% endtrans %}</th>
+                    <th>{% trans %}headquarter{% endtrans %}</th>
+                    <th>{% trans %}phone{% endtrans %}</th>
+                    <th>{% trans %}phone_movil{% endtrans %}</th>
+                    <th>{% trans %}section{% endtrans %}</th>
+                    <th>{% trans %}status{% endtrans %}</th>
+                    <th>{% trans %}roles{% endtrans %}</th>
+                    <th>{% trans %}actions{% endtrans %}</th>
+                </tr>
+            </thead>
+            <tbody>
+        {% for user in users.pagination %}
+                    <tr>
+                        <td>{{ user.name }}</td>
+                        <td>{{ user.lastName }}</td>
+                        <td>{{ user.address }}</td>
+                        <td>{{ user.dateBorn | localizeddate('long','none') }}</td>
+                        <td>{{ user.sexType.languages.0.description }}</td>
+                        <td>{{ user.distritType.languages.0.description }}</td>
+                        <td>{{ user.email }}</td>
+                        <td>{{ user.groupblodType.languages.0.description }}</td>
+                        <td>{{ user.headquarterType.languages.0.description }}</td>
+                        <td>{{ user.phone }}</td>
+                        <td>{{ user.phoneMovil }}</td>
+                        <td>{{ user.sectionType.languages.0.description }}</td>
+                        <td align="center">
+                        {% if user.status %}
+                                <span class="ui-icon ui-icon-check"></span>
+                        {% else %}
+                                <span class="ui-icon ui-icon-close"></span>
+                        {% endif %}
+                            </td>
+                            <td>
+                {% for role in user.rolesAccess %}
+                    {{ role.roleType.languages.0.description }}
+                {% endfor %}
+                                </td>
+                                <td align="center">
+                                    <ul class="record-actions">
+                                        <li>
+                                            <a href="{{ path('esolving_eschool_userB_show',{'userId':user.id}) }}" class="button ui-state-default"> 
+                                                <span class="ui-icon ui-icon-search icon-position"></span>
+                                            {% trans %}show{% endtrans %}
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="{{ path('esolving_eschool_userB_edit',{'userId':user.id}) }}" class="button ui-state-default">
+                                                <span class="ui-icon ui-icon-pencil icon-position"></span>
+                                            {% trans %}edit{% endtrans %}
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="{{ path('esolving_eschool_userB_delete',{'userId':user.id}) }}" class="button ui-state-default">
+                                                <span class="ui-icon ui-icon-trash icon-position"></span>
+                                            {% trans %}delete{% endtrans %}
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </td>
+                            </tr>
+        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+{% endblock content %}

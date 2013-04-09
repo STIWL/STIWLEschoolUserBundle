@@ -1,0 +1,51 @@
+esolving_eschool_userB_get_choice_fathers:
+    pattern: /get-choice-fathers
+    defaults: { _controller: EsolvingEschoolUserBundle:User:choiceFathers }
+    
+esolving_eschool_userB_submenu:
+    pattern: /submenu
+    defaults: { _controller: EsolvingEschoolUserBundle:User:submenu }
+
+esolving_eschool_userB_index:
+    pattern: /
+    defaults: { _controller: EsolvingEschoolUserBundle:User:home }
+
+esolving_eschool_userB_profile:
+    pattern: /profile
+    defaults: { _controller: EsolvingEschoolUserBundle:User:profile }
+
+esolving_eschool_userB_delete:
+    pattern: /{userId}/delete
+    defaults: { _controller: EsolvingEschoolUserBundle:User:delete }    
+
+esolving_eschool_userB_show:
+    pattern: /{userId}/show
+    defaults: { _controller: EsolvingEschoolUserBundle:User:show }    
+    
+esolving_eschool_userB_edit:
+    pattern: /{userId}/edit
+    defaults: { _controller: EsolvingEschoolUserBundle:User:edit }    
+
+esolving_eschool_userB_list:
+    pattern: /list
+    defaults: { _controller: EsolvingEschoolUserBundle:User:list }        
+    
+esolving_eschool_userB_register:
+    pattern: /register
+    defaults: { _controller: EsolvingEschoolUserBundle:User:register }
+    
+esolving_eschool_userB_set_section_headquarter:
+    pattern: /set-section-headquarter/{route}/{routeParams}
+    defaults: { _controller: EsolvingEschoolUserBundle:User:setSectionHeadquarter, routeParams: null }    
+
+esolving_eschool_userB_Student:
+    resource: "@EsolvingEschoolUserBundle/Resources/config/routing/student.yml"
+    prefix:   /student
+    
+esolving_eschool_userB_Father:
+    resource: "@EsolvingEschoolUserBundle/Resources/config/routing/father.yml"
+    prefix:   /father
+    
+esolving_eschool_userB_Teacher:
+    resource: "@EsolvingEschoolUserBundle/Resources/config/routing/teacher.yml"
+    prefix:   /teacher

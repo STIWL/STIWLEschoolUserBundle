@@ -1,0 +1,14 @@
+{% extends "EsolvingEschoolUserBundle::template.html.twig" %}
+{% trans_default_domain 'EsolvingEschoolUserBundle'%}
+{% block title %}{% trans %}home{% endtrans %}{% endblock %}
+{% block content %}
+<div id="content">
+{#{{ dump(app.session.get('section')) }}#}
+{#{% for role in app.user.roles %}
+                    {{ role }}
+                    {% endfor %}#}
+<h1>{{ block('title')}}</h1>
+This is the home
+</div>
+{% endblock content%}
+

@@ -1,0 +1,76 @@
+{% extends "EsolvingEschoolUserBundle::template.html.twig"%}
+{% trans_default_domain "EsolvingEschoolUserBundle" %}
+{% block title %}{% trans %}list_fathers{% endtrans %}{% endblock %}
+{% block content %}
+<div id="content">
+    <h1>{{ block('title')}}</h1>
+    <ul>
+        <li><a href="{{ path('esolving_eschool_userB_Father_register') }}">{% trans %}register_father{% endtrans %}</a></li>
+    </ul>
+    <div id="navigation">
+        {{ knp_pagination_render(fathers.pagination) }}
+        </div>
+        <table class="fancyTable">
+            <thead>
+                <tr>
+                    <th>{% trans %}name{% endtrans %}</th>
+                    <th>{% trans %}last_name{% endtrans %}</th>
+                    <th>{% trans %}address{% endtrans %}</th>
+                    <th>{% trans %}date_born{% endtrans %}</th>
+                    <th>{% trans %}sex{% endtrans %}</th>
+                    <th>{% trans %}distrit{% endtrans %}</th>
+                    <th>{% trans %}email{% endtrans %}</th>
+                    <th>{% trans %}group_blod{% endtrans %}</th>
+                    <th>{% trans %}headquarter{% endtrans %}</th>
+                    <th>{% trans %}phone{% endtrans %}</th>
+                    <th>{% trans %}phone_movil{% endtrans %}</th>
+                    <th>{% trans %}section{% endtrans %}</th>
+                    <th>{% trans %}status{% endtrans %}</th>
+                    <th>{% trans %}roles{% endtrans %}</th>
+                    <th>{% trans %}actions{% endtrans %}</th>
+                </tr>
+            </thead>
+            <tbody>
+        {% for father in fathers.pagination %}
+                    <tr>
+                        <td>{{ father.user.name }}</td>
+                        <td>{{ father.user.lastName }}</td>
+                        <td>{{ father.user.address }}</td>
+                        <td>{{ father.user.dateBorn | localizeddate('long','none') }}</td>
+                        <td>{{ father.user.sexType.languages.0.description }}</td>
+                        <td>{{ father.user.distritType.languages.0.description }}</td>
+                        <td>{{ father.user.email }}</td>
+                        <td>{{ father.user.groupblodType.languages.0.description }}</td>
+                        <td>{{ father.user.headquarterType.languages.0.description }}</td>
+                        <td>{{ father.user.phone }}</td>
+                        <td>{{ father.user.phoneMovil }}</td>
+                        <td>{{ father.user.sectionType.languages.0.description }}</td>
+                        <td align="center">
+                        {% if father.user.status %}
+                                <span class="ui-icon ui-icon-check"></span>
+                        {% else %}
+                                <span class="ui-icon ui-icon-close"></span>
+                        {% endif %}
+                        </td>
+                        <td>
+                {% for role in father.user.rolesAccess %}
+                    {{ role.roleType.languages.0.description }}
+                {% endfor %}
+                            </td>
+                            <td>
+                                <ul>
+                                    <li><a href="{{ path('esolving_eschool_userB_Father_show',{'fatherId':father.id}) }}">{% trans %}show{% endtrans %}</a></li>
+                                    <li><a href="{{ path('esolving_eschool_userB_Father_edit',{'fatherId':father.id}) }}">{% trans %}edit{% endtrans %}</a></li>
+                                    <li><a href="{{ path('esolving_eschool_userB_Father_delete',{'fatherId':father.id}) }}">{% trans %}delete{% endtrans %}</a></li>
+                                </ul>
+                            </td>
+                        </tr>
+        {% else %}
+                        <tr>
+                            <td colspan="15">{% trans %}empty{% endtrans %}</td>
+                        </tr>
+        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+{% endblock content %}

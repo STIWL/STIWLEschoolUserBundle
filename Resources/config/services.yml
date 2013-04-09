@@ -1,0 +1,100 @@
+parameters:
+    esolving_eschool_user.menu_builder.class: Esolving\Eschool\UserBundle\Menu\MenuBuilder
+    esolving_eschool_user.validator.constraints.is_actual_password.class: Esolving\Eschool\UserBundle\Validator\Constraints\IsActualPasswordValidator
+    esolving_eschool_user.form.type.user_update.class: Esolving\Eschool\UserBundle\Form\Type\UserUpdateType
+    esolving_eschool_user.form.type.user.class: Esolving\Eschool\UserBundle\Form\Type\UserType
+    esolving_eschool_user.form.type.role.class: Esolving\Eschool\UserBundle\Form\Type\RoleType
+    esolving_eschool_user.form.type.student.class: Esolving\Eschool\UserBundle\Form\Type\StudentType
+    esolving_eschool_user.form.type.student_inscribe.class: Esolving\Eschool\UserBundle\Form\Type\StudentInscribeType
+    esolving_eschool_user.form.type.student_inscribe_filter.class: Esolving\Eschool\UserBundle\Form\Type\StudentInscribeFilterType
+    esolving_eschool_user.form.type.teacher.class: Esolving\Eschool\UserBundle\Form\Type\TeacherType
+    esolving_eschool_user.form.type.father.class: Esolving\Eschool\UserBundle\Form\Type\FatherType
+    esolving_eschool_user.form.type.general.class: Esolving\Eschool\UserBundle\Form\Type\GeneralUserType
+    esolving_eschool_user.validator.constraints.is_father.class: Esolving\Eschool\UserBundle\Validator\Constraints\IsFatherValidator
+    esolving_eschool_user.validator.constraints.is_student.class: Esolving\Eschool\UserBundle\Validator\Constraints\IsStudentValidator
+    esolving_eschool_user.validator.constraints.is_teacher.class: Esolving\Eschool\UserBundle\Validator\Constraints\IsTeacherValidator
+    esolving_eschool_user.validator.constraints.email_no_repeat_validator.class: Esolving\Eschool\UserBundle\Validator\Constraints\EmailNoRepeatValidator
+    
+services:  
+    esolving_eschool_user.menu_builder:
+      class: %esolving_eschool_user.menu_builder.class%
+      arguments: ["@knp_menu.factory","@service_container"]
+
+    esolving_eschool_user.menu:
+      class: Knp\Menu\MenuItem # the service definition requires setting the class
+      factory_service: esolving_eschool_user.menu_builder
+      factory_method: userMenu
+      arguments: ["@request"]
+      scope: request # needed as we have the request as a dependency here
+      tags:
+          - { name: knp_menu.menu, alias: userMenu }
+          
+    esolving_eschool_user.validator.constraints.email_no_repeat_validator:
+        class: %esolving_eschool_user.validator.constraints.email_no_repeat_validator.class%
+        arguments: ['@doctrine.orm.entity_manager']
+        tags:
+            - { name: validator.constraint_validator, alias: EmailNoRepeatValidator }
+    
+    esolving_eschool_user.validator.constraints.is_teacher:
+        class: %esolving_eschool_user.validator.constraints.is_teacher.class%
+        arguments: ['@doctrine.orm.entity_manager']
+        tags:
+            - { name: validator.constraint_validator, alias: IsTeacherValidator }
+            
+    esolving_eschool_user.validator.constraints.is_student:
+        class: %esolving_eschool_user.validator.constraints.is_student.class%
+        arguments: ['@doctrine.orm.entity_manager']
+        tags:
+            - { name: validator.constraint_validator, alias: IsStudentValidator }
+    
+    esolving_eschool_user.validator.constraints.is_father:
+        class: %esolving_eschool_user.validator.constraints.is_father.class%
+        arguments: ['@doctrine.orm.entity_manager']
+        tags:
+            - { name: validator.constraint_validator, alias: IsFatherValidator }
+            
+    esolving_eschool_user.validator.constraints.is_actual_password:
+        class: %esolving_eschool_user.validator.constraints.is_actual_password.class%
+        arguments: ['@doctrine.orm.entity_manager','@service_container']
+        tags:
+            - { name: validator.constraint_validator, alias: IsActualPasswordValidator }
+            
+    esolving_eschool_user.form.type.user_update:
+        class: %esolving_eschool_user.form.type.user_update.class%
+        arguments: ['@service_container']
+        
+    esolving_eschool_user.form.type.user:
+        class: %esolving_eschool_user.form.type.user.class%
+        arguments: ['@service_container','@doctrine.orm.default_entity_manager']
+      
+    esolving_eschool_user.form.type.role:
+        class: %esolving_eschool_user.form.type.role.class%
+        arguments: ['@service_container']
+      
+    esolving_eschool_user.form.type.student:
+        class: %esolving_eschool_user.form.type.student.class%
+        arguments: ['@service_container','@doctrine.orm.default_entity_manager']
+        
+    esolving_eschool_user.form.type.student_inscribe:
+        class: %esolving_eschool_user.form.type.student_inscribe.class%
+        arguments: ['@service_container','@doctrine.orm.default_entity_manager']
+        
+    esolving_eschool_user.form.type.student_inscribe_filter:
+        class: %esolving_eschool_user.form.type.student_inscribe_filter.class%
+        arguments: ['@doctrine.orm.default_entity_manager']
+      
+    esolving_eschool_user.form.type.teacher:
+        class: %esolving_eschool_user.form.type.teacher.class%
+        arguments: ['@service_container','@doctrine.orm.default_entity_manager']
+        
+    esolving_eschool_user.form.type.father:
+        class: %esolving_eschool_user.form.type.father.class%
+        arguments: ['@service_container','@doctrine.orm.default_entity_manager']
+
+    esolving_eschool_user.form.type.general:
+        class: %esolving_eschool_user.form.type.general.class%
+        arguments: ['@service_container','@doctrine.orm.default_entity_manager']
+        
+    esolving_eschool_user.form.type.choice_father:
+        class: Esolving\Eschool\UserBundle\Form\Type\ChoiceFatherType
+        arguments: ['@service_container']

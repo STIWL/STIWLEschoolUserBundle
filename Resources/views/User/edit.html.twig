@@ -1,0 +1,153 @@
+{% extends "EsolvingEschoolUserBundle::template.html.twig"%}
+{% trans_default_domain 'EsolvingEschoolUserBundle' %}
+{% block javascripts %}
+    {{ parent() }}
+<script type="text/javascript">
+    $(function() {
+        $(document).on('click', "#{{ form.rolesAccess.vars.id }}", function(event) {
+            $('#fathers').html('');
+            var $this = $(this);
+            //for father
+            if ($(event.target).index() === 1) {
+                $('#show-father').attr('style', 'display:none');
+                if ($(event.target).is(':selected')) {
+                    $("#role").val('ROLE_FATHER');
+                    $.ajax({
+                        type: 'POST',
+                        url: "{{ path('esolving_eschool_userB_edit',{'userId':user.id}) }}",
+                        //data: {'userId': '{{ user.id }}','role':'ROLE_FATHER','roles':$this.serialize()},
+                        data: $("#" + "{{ form.vars.id }}").find('select').add('#userId, #role').serialize(),
+                        success: function(data) {
+                            $('#request-user').html(data);
+                        }
+                    });
+                }
+                //for student
+            } else if ($(event.target).index() === 2) {
+                if ($(event.target).is(':selected')) {
+                    $("#role").val('ROLE_STUDENT');
+                    $.ajax({
+                        type: 'POST',
+                        url: "{{ path('esolving_eschool_userB_edit',{'userId':user.id}) }}",
+                        data: $("#" + "{{ form.vars.id }}").find('select').add('#userId, #role').serialize(),
+                        success: function(data) {
+                            $('#request-user').html(data);
+                        }
+                    });
+                    //$this.find('option').attr({'style': 'display:none'});
+                    //$(event.target).attr({'style': 'display:block'});
+                } else {
+                    $.ajax({
+                        type: 'POST',
+                        url: "{{ path('esolving_eschool_userB_edit',{'userId':user.id}) }}",
+                        data: $("#" + "{{ form.vars.id }}").find('select').add('#userId, #role').serialize(),
+                        success: function(data) {
+                            $('#request-user').html(data);
+                        }
+                    });
+                    $this.find('option').attr({'style': 'display:block'});
+                }
+            } else {
+                $("#role").val('');
+                $.ajax({
+                    type: 'POST',
+                    url: "{{ path('esolving_eschool_userB_edit',{'userId':user.id}) }}",
+                    data: $("#" + "{{ form.vars.id }}").find('select').add('#userId, #role').serialize(),
+                    success: function(data) {
+                        $('#request-user').html(data);
+                    }
+                });
+                $this.find('option').attr({'style': 'display:block'});
+                $this.find('option').eq(2).attr({'style': 'display:block'});
+            }
+            $.each($this.find('option:selected'), function(index, value) {
+                if ($(value).index() === '1') {
+                    $this.find('option').eq(2).attr({'style': 'display:none'});
+                }
+            });
+            /*var $this = $(this);
+             alert($(event.target).index());*/
+        });
+
+        $("#" + "{{ form.vars.id }}").submit(function() {
+            $.ajax({
+                type: 'POST',
+                url: "{{ path('esolving_eschool_userB_edit',{'userId':user.id}) }}",
+                data: $(this).add("#send").serialize(),
+                dataType: 'json',
+                success: function(data) {
+                    if (data.form_errors) {
+                        $.map(data.form_errors, function(item, i) {
+                            $(".form_errors").eq(i).html(item.error);
+                        });
+                    }
+                    $("[class*='info']").html('');
+                    var info = '';
+                    if (data.status === 1) {
+                        $('.info').html(data.info);
+                    } else {
+                        $.map(data.info, function(item, i) {
+                            info += item + "</br>";
+                        });
+                        $('.info').html(info);
+                    }
+                    if (data.errors) {
+                        $('.info-error').html(data.errors);
+                    }
+                }
+            });
+            return false;
+        });
+    });
+    </script>
+{% endblock javascripts %}
+{% block title %}{% trans %}edit_user{% endtrans %}{% endblock %}
+{% block content %}
+    <input type="hidden" id="userId" name="userId" value="{{ user.id }}">
+    <input type="hidden" id="send" name="send" value="1">
+    <div id="content">
+        <h1>{{ block('title')}}</h1>
+        <ul class="record-actions record-actions-header">
+            <li>
+                <a href="{{ path('esolving_eschool_userB_show',{'userId':user.id})}}" class="button ui-state-default">
+                    <span class="ui-icon ui-icon-search icon-position"></span>
+                {% trans %}show_user{% endtrans %}
+                </a>
+            </li>
+            <li>
+                <a href="{{ path('esolving_eschool_userB_register')}}" class="button ui-state-default">
+                    <span class="ui-icon ui-icon-plus icon-position"></span>
+                {% trans %}register_user{% endtrans %}
+                </a>
+            </li>
+            <li>
+                <a href="{{ path('esolving_eschool_userB_list')}}" class="button ui-state-default">
+                    <span class="ui-icon ui-icon-document icon-position"></span>
+                {% trans %}back_to_the_list{% endtrans %}
+                </a>
+            </li>
+            <li>
+                <a href="{{ path('esolving_eschool_userB_delete', { 'userId': user.id }) }}" class="button ui-state-default">
+                    <span class="ui-icon ui-icon-trash icon-position"></span>
+                {% trans %}delete{% endtrans %}
+                </a>
+            </li>
+        </ul>
+        <div class="clearfix divider-medium"></div>
+        <div class="info-error"></div>
+        <div class="info"></div>
+    {{ info }}
+        <form action="" method="post" {{ form_enctype(form) }} novalidate="" id="{{ form.vars.id }}">
+            <div id="request-user">
+            {#<div id="fathers">
+            {% if form.fathers is defined %}
+                    {{ form_row(form.fathers) }}
+            {% endif %}
+                </div>#}
+    {{ form_widget(form) }}
+                </div>
+                <div class="form_label">&nbsp;</div>
+                <div class="form_widget"><input type="submit" value="{% trans %}update{% endtrans %}" class="button button-form"></div>
+            </form>
+        </div>
+{% endblock content %}

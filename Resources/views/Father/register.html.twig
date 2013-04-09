@@ -1,0 +1,17 @@
+{% extends "EsolvingEschoolUserBundle::template.html.twig"%}
+{% trans_default_domain "EsolvingEschoolUserBundle" %}
+{% block title %}{% trans %}register_father{% endtrans %}{% endblock %}
+{% block content %}
+<div id="content">
+<h1>{{ block('title')}}</h1>
+{{ html.jqueryUiGetNotice(info,status) }}
+<form method="post" action="{{ path('esolving_eschool_userB_Father_register') }}" novalidate="" {{ form_enctype(form) }}>
+    {{ form_widget(form) }}
+        <div class="form_label">&nbsp;</div>
+        <div class="form_widget"><input type="submit" value="{% trans %}register{% endtrans %}" class="button button-form"/></div>
+</form>
+<ul class="record_actions">
+    <li><a href="{{ path('esolving_eschool_userB_Father_list') }}">{% trans %}back_to_the_list{% endtrans %}</a></li>
+</ul>
+</div>
+{% endblock content %}

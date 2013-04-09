@@ -1,0 +1,97 @@
+{% extends "EsolvingEschoolUserBundle::template.html.twig"%}
+{% trans_default_domain 'EsolvingEschoolUserBundle' %}
+{% block title %}{% trans %}list_students{% endtrans %}{% endblock %}
+{% block content %}
+<div id="content">
+    <h1>{{ block('title')}}</h1>
+    <ul class="record-actions record-actions-header">
+        <li>
+            <a href="{{ path('esolving_eschool_userB_Student_register') }}" class="button ui-state-default">
+                <span class="ui-icon ui-icon-plus icon-position"></span>
+            {% trans %}register_student{% endtrans %}
+            </a>
+        </li>
+    </ul>
+    <div class="clearfix divider-medium"></div>
+    <div id="navigation">
+        {{ knp_pagination_render(students.pagination) }}
+        </div>
+        <table class="fancyTable">
+            <thead>
+                <tr>
+                    <th>{% trans %}name{% endtrans %}</th>
+                    <th>{% trans %}last_name{% endtrans %}</th>
+                    <th>{% trans %}address{% endtrans %}</th>
+                    <th>{% trans %}date_born{% endtrans %}</th>
+                    <th>{% trans %}sex{% endtrans %}</th>
+                    <th>{% trans %}distrit{% endtrans %}</th>
+                    <th>{% trans %}email{% endtrans %}</th>
+                    <th>{% trans %}group_blod{% endtrans %}</th>
+                    <th>{% trans %}headquarter{% endtrans %}</th>
+                    <th>{% trans %}phone{% endtrans %}</th>
+                    <th>{% trans %}phone_movil{% endtrans %}</th>
+                    <th>{% trans %}section{% endtrans %}</th>
+                    <th>{% trans %}status{% endtrans %}</th>
+                    <th>{% trans %}roles{% endtrans %}</th>
+                    <th>{% trans %}actions{% endtrans %}</th>
+                </tr>
+            </thead>
+            <tbody>
+        {% for student in students.pagination %}
+                    <tr>
+                        <td>{{ student.user.name }}</td>
+                        <td>{{ student.user.lastName }}</td>
+                        <td>{{ student.user.address }}</td>
+                        <td>{{ student.user.dateBorn | localizeddate('long','none') }}</td>
+                        <td>{{ student.user.sexType.languages.0.description }}</td>
+                        <td>{{ student.user.distritType.languages.0.description }}</td>
+                        <td>{{ student.user.email }}</td>
+                        <td>{{ student.user.groupblodType.languages.0.description }}</td>
+                        <td>{{ student.user.headquarterType.languages.0.description }}</td>
+                        <td>{{ student.user.phone }}</td>
+                        <td>{{ student.user.phoneMovil }}</td>
+                        <td>{{ student.user.sectionType.languages.0.description }}</td>
+                        <td align="center">
+                        {% if student.user.status %}
+                                <span class="ui-icon ui-icon-check"></span>
+                        {% else %}
+                                <span class="ui-icon ui-icon-close"></span>
+                        {% endif %}
+                            </td>
+                            <td>
+                {% for role in student.user.rolesAccess %}
+                    {{ role.roleType.languages.0.description }}
+                {% endfor %}
+                                </td>
+                                <td align="center">
+                                    <ul class="record-actions">
+                                        <li>
+                                            <a href="{{ path('esolving_eschool_userB_Student_show',{'studentId':student.id}) }}" class="button ui-state-default">
+                                                <span class="ui-icon ui-icon-search icon-position"></span>
+                                    {% trans %}show{% endtrans %}
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="{{ path('esolving_eschool_userB_Student_edit',{'studentId':student.id}) }}" class="button ui-state-default">
+                                                <span class="ui-icon ui-icon-pencil icon-position"></span>
+                                    {% trans %}edit{% endtrans %}
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="{{ path('esolving_eschool_userB_Student_delete',{'studentId':student.id}) }}" class="button ui-state-default">
+                                                <span class="ui-icon ui-icon-trash icon-position"></span>
+                                    {% trans %}delete{% endtrans %}
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </td>
+                            </tr>
+        {% else %}
+                            <tr>
+                                <td colspan="15">{% trans %}empty{% endtrans %}</td>
+                            </tr>
+        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+{% endblock content %}

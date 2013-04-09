@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file source-language="en" datatype="plaintext" original="validators.en.xlf">
+        <body>
+            <trans-unit id="invalid_email">
+                <source>invalid_email</source>
+                <target>Este valor debe ser un email válido, el email '{{ value }}' no es válido.</target>
+            </trans-unit>
+            <trans-unit id="min_length">
+                <source>min_length</source>
+                <!--<target>{0}|{1}et %count% autre|]1,Inf[voir les %count% autres</target>-->
+                <target>Este valor deberia tener al menos 1 caracter|El campo debería tener al menos {{ limit }} caracteres.</target>
+            </trans-unit>
+            <trans-unit id="this_value_is_not_actual_password">
+                <source>this_value_is_not_actual_password</source>
+                <target>Este valor no es la contraseña actual.</target>
+            </trans-unit>
+            <trans-unit id="the_password_and_new_password_fields_must_be_match">
+                <source>the_password_and_new_password_fields_must_be_match</source>
+                <target>Los campos 'Nueva contraseña' y 'Confirmación de contraseña' deberían coincidir.</target>
+            </trans-unit>
+            <trans-unit id="in_role_student_no_more_roles">
+                <source>in_role_student_no_more_roles</source>
+                <target>En rol Alumno, no se puede seleccionar más roles.</target>
+            </trans-unit>
+            <trans-unit id="fathers_required">
+                <source>fathers_required</source>
+                <target>Padres requeridos.</target>
+            </trans-unit>
+            <trans-unit id="is_father_and_have_sons">
+                <source>is_father_and_have_sons</source>
+                <target>Es Padre y tiene hijos.</target>
+            </trans-unit>
+            <trans-unit id="is_teacher_and_have_schedule">
+                <source>is_teacher_and_have_schedule</source>
+                <target>Es docente y tiene horario.</target>
+            </trans-unit>
+            <trans-unit id="is_student_and_is_inscribed_in_room">
+                <source>is_student_and_is_inscribed_in_room</source>
+                <target>Es Alumno y esta inscrito en un salón.</target>
+            </trans-unit>
+            <trans-unit id="this_email_is_not_available">
+                <source>this_email_is_not_available</source>
+                <target>Este email no está disponible.</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

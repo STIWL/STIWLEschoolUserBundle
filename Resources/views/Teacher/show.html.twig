@@ -1,0 +1,30 @@
+{% extends "EsolvingEschoolUserBundle::template.html.twig"%}
+{% trans_default_domain 'EsolvingEschoolUserBundle' %}
+{% block title %}{% trans %}show_teacher{% endtrans %}{% endblock %}
+{% block content %}
+<div id="content">
+    <h1>{{ block('title')}}</h1>
+    <ul class="record-actions record-actions-header">
+        <li>
+            <a href="{{ path('esolving_eschool_userB_Teacher_list')}}" class="button ui-state-default">
+                <span class="ui-icon ui-icon-trash icon-position"></span>
+            {% trans %}back_to_the_list{% endtrans %}
+            </a>
+        </li>
+        <li>
+            <a href="{{ path('esolving_eschool_userB_Teacher_edit',{'teacherId':teacher.id})}}" class="button ui-state-default">
+                <span class="ui-icon ui-icon-pencil icon-position"></span>
+            {% trans %}edit{% endtrans %}
+            </a>
+        </li>
+        <li>
+            <a href="{{ path('esolving_eschool_userB_Teacher_delete',{'teacherId':teacher.id})}}" class="button ui-state-default">
+                <span class="ui-icon ui-icon-trash icon-position"></span>
+            {% trans %}delete{% endtrans %}
+            </a>
+        </li>
+    </ul>
+    <div class="clearfix divider-medium"></div>
+{% include 'EsolvingEschoolUserBundle::show.inc.html.twig' with {'user':teacher.user} %}
+</div>
+{% endblock content %}

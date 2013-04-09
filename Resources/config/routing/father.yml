@@ -1,0 +1,19 @@
+esolving_eschool_userB_Father_delete:
+    pattern: /{fatherId}/delete
+    defaults: { _controller: EsolvingEschoolUserBundle:Father:delete }
+    
+esolving_eschool_userB_Father_edit:
+    pattern: /{fatherId}/edit
+    defaults: { _controller: EsolvingEschoolUserBundle:Father:edit }
+
+esolving_eschool_userB_Father_show:
+    pattern: /{fatherId}/show
+    defaults: { _controller: EsolvingEschoolUserBundle:Father:show }    
+    
+esolving_eschool_userB_Father_list:
+    pattern: /list
+    defaults: { _controller: EsolvingEschoolUserBundle:Father:list }
+    
+esolving_eschool_userB_Father_register:
+    pattern: /register
+    defaults: { _controller: EsolvingEschoolUserBundle:Father:register }  

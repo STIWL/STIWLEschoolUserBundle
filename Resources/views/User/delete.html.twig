@@ -1,0 +1,23 @@
+{% extends "EsolvingEschoolUserBundle::template.html.twig"%}
+{% trans_default_domain 'EsolvingEschoolUserBundle' %}
+{% block title %}{% trans %}delete_user{% endtrans %}{% endblock %}
+{% block content %}
+<div id="content">
+    <h1>{{ block('title')}}</h1>
+    <ul class="record-actions record-actions-header">
+        <li>
+            <a href="{{ path('esolving_eschool_userB_list')}}" class="button ui-state-default">
+                <span class="ui-icon ui-icon-document icon-position"></span>
+            {% trans %}back_to_the_list{% endtrans %}
+                </a>
+        </li>
+    </ul>
+    <div class="clearfix divider-medium"></div>
+{{ html.jqueryUiGetNotice("are_you_sure_to_delete"| trans(),0)}}
+{% include 'EsolvingEschoolUserBundle::show.inc.html.twig' with {'user':user} %}
+    <form action="" method="post">
+    {{ form_widget(form)}}
+            <input type="submit" value="{% trans %}delete{% endtrans %}" class="button button-form">
+        </form>
+    </div>
+{% endblock content %}

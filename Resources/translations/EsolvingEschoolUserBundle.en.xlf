@@ -1,0 +1,403 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file source-language="en" datatype="plaintext" original="">
+        <body>
+            <trans-unit id="home">
+                <source>home</source>
+                <target>Home</target>
+            </trans-unit>
+            <trans-unit id="log_out">
+                <source>log_out</source>
+                <target>Log out</target>
+            </trans-unit>
+            <trans-unit id="and">
+                <source>and</source>
+                <target>and</target>
+            </trans-unit>
+            <trans-unit id="designed">
+                <source>designed</source>
+                <target>Designed</target>
+            </trans-unit>
+            <trans-unit id="developed_by">
+                <source>developed_by</source>
+                <target>Developed by</target>
+            </trans-unit>
+<!--            <trans-unit id="show">
+                <source>show</source>
+                <target>Show %name%</target>
+            </trans-unit>-->
+            <trans-unit id="name">
+                <source>name</source>
+                <target>Name</target>
+            </trans-unit>
+            <trans-unit id="last_name">
+                <source>last_name</source>
+                <target>Last name</target>
+            </trans-unit>
+            <trans-unit id="address">
+                <source>address</source>
+                <target>Address</target>
+            </trans-unit>
+            <trans-unit id="code">
+                <source>code</source>
+                <target>Code</target>
+            </trans-unit>
+            <trans-unit id="password">
+                <source>password</source>
+                <target>Password</target>
+            </trans-unit>
+            <trans-unit id="date_born">
+                <source>date_born</source>
+                <target>Date born</target>
+            </trans-unit>
+            <trans-unit id="date_modificated">
+                <source>date_modificated</source>
+                <target>Date modificated</target>
+            </trans-unit>
+            <trans-unit id="date_disabled">
+                <source>date_disabled</source>
+                <target>Date disabled</target>
+            </trans-unit>
+            <trans-unit id="date_registered">
+                <source>date_registered</source>
+                <target>Date registered</target>
+            </trans-unit>
+            <trans-unit id="distrit">
+                <source>distrit</source>
+                <target>Distrit</target>
+            </trans-unit>
+            <trans-unit id="group_blod">
+                <source>group_blod</source>
+                <target>Group blod</target>
+            </trans-unit>
+            <trans-unit id="groups">
+                <source>groups</source>
+                <target>Groups</target>
+            </trans-unit>
+            <trans-unit id="headquarter">
+                <source>headquarter</source>
+                <target>Headquarter</target>
+            </trans-unit>
+            <trans-unit id="phone">
+                <source>phone</source>
+                <target>Phone</target>
+            </trans-unit>
+            <trans-unit id="phone_movil">
+                <source>phone_movil</source>
+                <target>Phone movil</target>
+            </trans-unit>
+            <trans-unit id="section">
+                <source>section</source>
+                <target>Section</target>
+            </trans-unit>
+            <trans-unit id="sex">
+                <source>sex</source>
+                <target>Sex</target>
+            </trans-unit>
+            <trans-unit id="status">
+                <source>status</source>
+                <target>Status</target>
+            </trans-unit>
+            <trans-unit id="salt">
+                <source>salt</source>
+                <target>Salt</target>
+            </trans-unit>
+            <trans-unit id="actual_password">
+                <source>actual_password</source>
+                <target>Actual password</target>
+            </trans-unit>
+            <trans-unit id="confirmation_password">
+                <source>confirmation_password</source>
+                <target>Password confirmation</target>
+            </trans-unit>
+            <trans-unit id="new_password">
+                <source>new_password</source>
+                <target>New Password</target>
+            </trans-unit>
+            <trans-unit id="email">
+                <source>email</source>
+                <target>Email</target>
+            </trans-unit>
+            <trans-unit id="age">
+                <source>age</source>
+                <target>Age</target>
+            </trans-unit>
+            <trans-unit id="language">
+                <source>language</source>
+                <target>Language</target>
+            </trans-unit>
+            <trans-unit id="not_valid_form">
+                <source>not_valid_form</source>
+                <target>Formulario inválido</target>
+            </trans-unit>
+            <trans-unit id="success_update">
+                <source>success_update</source>
+                <target>Actualizado con éxito</target>
+            </trans-unit>
+            <trans-unit id="roles">
+                <source>roles</source>
+                <target>Roles</target>
+            </trans-unit>
+            <trans-unit id="registered">
+                <source>registered</source>
+                <target>Registrado</target>
+            </trans-unit>
+            <trans-unit id="cant_registered">
+                <source>cant_registered</source>
+                <target>No pudo ser registrado</target>
+            </trans-unit>
+            <trans-unit id="not_registered">
+                <source>not_registered</source>
+                <target>No registrado</target>
+            </trans-unit>
+            <trans-unit id="users">
+                <source>users</source>
+                <target>Users</target>
+            </trans-unit>
+            <trans-unit id="teachers">
+                <source>teachers</source>
+                <target>Teachers</target>
+            </trans-unit>
+            <trans-unit id="students">
+                <source>students</source>
+                <target>Students</target>
+            </trans-unit>
+            <trans-unit id="my_account">
+                <source>my_account</source>
+                <target>My account</target>
+            </trans-unit>
+            <trans-unit id="profile">
+                <source>profile</source>
+                <target>Profile</target>
+            </trans-unit>
+            <trans-unit id="register">
+                <source>register</source>
+                <target>Register</target>
+            </trans-unit>
+            <trans-unit id="reports">
+                <source>reports</source>
+                <target>Reports</target>
+            </trans-unit>
+            <trans-unit id="please_complete_the_fields_correctly">
+                <source>please_complete_the_fields_correctly</source>
+                <target>Please complete the fields correctly</target>
+            </trans-unit>
+            <trans-unit id="updated">
+                <source>updated</source>
+                <target>Updated</target>
+            </trans-unit>
+            <trans-unit id="you_have_sons">
+                <source>you_have_sons</source>
+                <target>You have sons</target>
+            </trans-unit>
+            <trans-unit id="cant_update">
+                <source>cant_update</source>
+                <target>Can't update</target>
+            </trans-unit>
+            <trans-unit id="not_updated">
+                <source>not_updated</source>
+                <target>Not updated</target>
+            </trans-unit>
+            <trans-unit id="update">
+                <source>update</source>
+                <target>Update</target>
+            </trans-unit>
+            <trans-unit id="actions">
+                <source>actions</source>
+                <target>Actions</target>
+            </trans-unit>
+            <trans-unit id="are_you_sure_to_delete">
+                <source>are_you_sure_to_delete</source>
+                <target>Are you sure to delete?</target>
+            </trans-unit>
+            <trans-unit id="back_to_the_list">
+                <source>back_to_the_list</source>
+                <target>Back to the list</target>
+            </trans-unit>
+            <trans-unit id="register_user">
+                <source>register_user</source>
+                <target>Register user</target>
+            </trans-unit>
+            <trans-unit id="show_user">
+                <source>show_user</source>
+                <target>Show user</target>
+            </trans-unit>
+            <trans-unit id="list_users">
+                <source>list_users</source>
+                <target>List users</target>
+            </trans-unit>
+            <trans-unit id="user">
+                <source>user</source>
+                <target>User</target>
+            </trans-unit>
+            <trans-unit id="show">
+                <source>show</source>
+                <target>Show</target>
+            </trans-unit>
+            <trans-unit id="delete">
+                <source>delete</source>
+                <target>Delete</target>
+            </trans-unit>
+            <trans-unit id="edit">
+                <source>edit</source>
+                <target>Edit</target>
+            </trans-unit>
+            <trans-unit id="edit_user">
+                <source>edit_user</source>
+                <target>Edit user</target>
+            </trans-unit>
+            <trans-unit id="delete_user">
+                <source>delete_user</source>
+                <target>Delete user</target>
+            </trans-unit>
+            <trans-unit id="list_students">
+                <source>list_students</source>
+                <target>List students</target>
+            </trans-unit>
+            <trans-unit id="register_student">
+                <source>register_student</source>
+                <target>Register student</target>
+            </trans-unit>
+            <trans-unit id="show_student">
+                <source>show_student</source>
+                <target>Show student</target>
+            </trans-unit>
+            <trans-unit id="edit_student">
+                <source>edit_student</source>
+                <target>Edit student</target>
+            </trans-unit>
+            <trans-unit id="fathers">
+                <source>fathers</source>
+                <target>Fathers</target>
+            </trans-unit>
+            <trans-unit id="delete_student">
+                <source>delete_student</source>
+                <target>Delete student</target>
+            </trans-unit>
+            <trans-unit id="register_teacher">
+                <source>register_teacher</source>
+                <target>Register teacher</target>
+            </trans-unit>
+            <trans-unit id="list_teachers">
+                <source>list_teachers</source>
+                <target>List teachers</target>
+            </trans-unit>
+            <trans-unit id="register_father">
+                <source>register_father</source>
+                <target>Register father</target>
+            </trans-unit>
+            <trans-unit id="list_fathers">
+                <source>list_fathers</source>
+                <target>List fathers</target>
+            </trans-unit>
+            <trans-unit id="show_teacher">
+                <source>show_teacher</source>
+                <target>Show teacher</target>
+            </trans-unit>
+            <trans-unit id="edit_teacher">
+                <source>edit_teacher</source>
+                <target>Edit teacher</target>
+            </trans-unit>
+            <trans-unit id="delete_teacher">
+                <source>delete_teacher</source>
+                <target>Delete teacher</target>
+            </trans-unit>
+            <trans-unit id="empty">
+                <source>empty</source>
+                <target>Empty</target>
+            </trans-unit>
+            <trans-unit id="inscribe_student">
+                <source>inscribe_student</source>
+                <target>Inscribe student</target>
+            </trans-unit>
+            <trans-unit id="student">
+                <source>student</source>
+                <target>Student</target>
+            </trans-unit>
+            <trans-unit id="room">
+                <source>room</source>
+                <target>Room</target>
+            </trans-unit>
+            <trans-unit id="current_date">
+                <source>current_date</source>
+                <target>Current date</target>
+            </trans-unit>
+            <trans-unit id="date_start">
+                <source>date_start</source>
+                <target>Start date</target>
+            </trans-unit>
+            <trans-unit id="date_end">
+                <source>date_end</source>
+                <target>End date</target>
+            </trans-unit>
+            <trans-unit id="date_inscribed">
+                <source>date_inscribed</source>
+                <target>Date inscribed</target>
+            </trans-unit>
+            <trans-unit id="list_students_inscribed">
+                <source>list_students_inscribed</source>
+                <target>List of students inscribed</target>
+            </trans-unit>
+            <trans-unit id="edit_student_inscribed">
+                <source>edit_student_inscribed</source>
+                <target>Edit student inscribed</target>
+            </trans-unit>
+            <trans-unit id="delete_student_inscribed">
+                <source>delete_student_inscribed</source>
+                <target>Delete student inscribed</target>
+            </trans-unit>
+            <trans-unit id="show_father">
+                <source>show_father</source>
+                <target>Show padre</target>
+            </trans-unit>
+            <trans-unit id="delete_father">
+                <source>delete_father</source>
+                <target>Delete father</target>
+            </trans-unit>
+            <trans-unit id="register_schedule">
+                <source>register_schedule</source>
+                <target>Register schedule</target>
+            </trans-unit>
+            <trans-unit id="list_schedules">
+                <source>list_schedules</source>
+                <target>List of schedules</target>
+            </trans-unit>
+            <trans-unit id="back_to_the_inscribe_list">
+                <source>back_to_the_inscribe_list</source>
+                <target>Back to the inscribe list</target>
+            </trans-unit>
+            <trans-unit id="edit_father">
+                <source>edit_father</source>
+                <target>Edit father</target>
+            </trans-unit>
+            <trans-unit id="show_student_incribe">
+                <source>show_student_incribe</source>
+                <target>Show student inscribe</target>
+            </trans-unit>
+            <trans-unit id="role">
+                <source>role</source>
+                <target>Role</target>
+            </trans-unit>
+            <trans-unit id="general">
+                <source>general</source>
+                <target>General</target>
+            </trans-unit>
+            <trans-unit id="accept">
+                <source>accept</source>
+                <target>Accept</target>
+            </trans-unit>
+            <trans-unit id="are_you_sure_to_change">
+                <source>are_you_sure_to_change</source>
+                <target>Are your sure to change?</target>
+            </trans-unit>
+            <trans-unit id="enabled">
+                <source>enabled</source>
+                <target>Enabled</target>
+            </trans-unit>
+            <trans-unit id="disabled">
+                <source>disabled</source>
+                <target>Disabled</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

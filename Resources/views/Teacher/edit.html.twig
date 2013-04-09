@@ -1,0 +1,17 @@
+{% extends "EsolvingEschoolUserBundle::template.html.twig"%}
+{% trans_default_domain 'EsolvingEschoolUserBundle' %}
+{% block title %}{% trans %}edit_teacher{% endtrans %}{% endblock %}
+{% block content %}
+<div id="content">
+    <h1>{{ block('title')}}</h1>
+    <form method="post" action="" novalidate="" {{ form_enctype(form) }}>
+    {{ form_widget(form) }}
+            <div class="form_label">&nbsp;</div>
+            <div class="form_widget"><input type="submit" value="{% trans %}update{% endtrans %}" class="button button-form"></div>
+        </form>
+    <ul class="record_actions">
+            <li><a href="{{ path('esolving_eschool_userB_Teacher_list') }}">{% trans %}back_to_the_list{% endtrans %}</a></li>
+            <li><a href="{{ path('esolving_eschool_userB_Teacher_delete',{'teacherId':teacher.id}) }}">{% trans %}delete{% endtrans %}</a></li>
+        </ul>
+    </div>
+{% endblock content %}

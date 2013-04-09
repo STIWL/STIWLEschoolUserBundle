@@ -1,0 +1,73 @@
+{% trans_default_domain 'EsolvingEschoolUserBundle' %}
+<table class="fancyTable">
+    <tbody>
+        <tr>
+            <th>{% trans %}name{% endtrans %}</th>
+            <td>{{ user.name }}</td>
+        </tr>
+        <tr>
+            <th>{% trans %}last_name{% endtrans %}</th>
+            <td>{{ user.lastName }}</td>
+        </tr>
+        <tr>
+            <th>{% trans %}address{% endtrans %}</th>
+            <td>{{ user.address }}</td>
+        </tr>
+        <tr>
+            <th>{% trans %}date_born{% endtrans %}</th>
+            <td>{{ user.dateBorn | localizeddate('long','none') }}</td>
+        </tr>
+        <tr>
+            <th>{% trans %}sex{% endtrans %}</th>
+            <td>{{ user.sexType.languages.0.description }}</td>
+        </tr>
+        <tr>
+            <th>{% trans %}distrit{% endtrans %}</th>
+            <td>{{ user.distritType.languages.0.description }}</td>
+        </tr>
+
+        <tr>
+            <th>{% trans %}email{% endtrans %}</th>
+            <td>{{ user.email }}</td>
+        </tr>
+        <tr>
+            <th>{% trans %}group_blod{% endtrans %}</th>
+            <td>{{ user.groupBlodType.languages.0.description }}</td>
+        </tr>
+        <tr>
+            <th>{% trans %}headquarter{% endtrans %}</th>
+            <td>{{ user.headquarterType.languages.0.description }}</td>
+        </tr>
+        <tr>
+            <th>{% trans %}phone{% endtrans %}</th>
+            <td>{{ user.phone }}</td>
+        </tr>
+        <tr>
+            <th>{% trans %}phone_movil{% endtrans %}</th>
+            <td>{{ user.phoneMovil }}</td>
+        </tr>
+        <tr>
+            <th>{% trans %}section{% endtrans %}</th>
+            <td>{{ user.sectionType.languages.0.description }}</td>
+        </tr>
+        <tr>
+            <th>{% trans %}status{% endtrans %}</th>
+            <td>
+                {% if user.status %}
+                    <span class="ui-icon ui-icon-check"></span>
+                {% else %}
+                    <span class="ui-icon ui-icon-close"></span>
+                {% endif %}
+                </td>
+            </tr>
+            <tr>
+                <th>{% trans %}roles{% endtrans %}</th>
+                <td>
+                {% for role in user.rolesAccess %}
+                    {{ role.roleType.languages.0.description }}
+                {% endfor %}
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+

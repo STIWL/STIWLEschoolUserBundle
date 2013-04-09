@@ -1,0 +1,18 @@
+{
+"form_errors":{
+    {% for key, item in form.children %}
+    "{{ loop.index0 }}":{
+        "name":"{{ key }}",
+        "error":"{{ form_errors(item) }}"
+    }{% if not loop.last %},{% endif %}
+    {% endfor %}
+},
+"errors" : "{{ form_errors(form) }}",
+"info": {
+    {% for info in infos %}
+    "{{ loop.index0 }}": "{{ info }}"
+    {% if not loop.last %},{% endif %}
+    {% endfor %}
+},
+"status": "{{ status }}"
+}
